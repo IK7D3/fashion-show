@@ -1,0 +1,30 @@
+.Header {
+  /* background-color: brown !important; */
+  color: rgb(240, 240, 240) !important;
+  font-size: 1.3em;
+}
+
+
+.Header{
+  color: #fff !important;
+  /* position: fixed;
+  margin-bottom:20px ;
+  z-index: 10; */
+}
+button:hover {
+  /* border-radius: 0.5rem !important; */
+  /* background-color: rgba(47, 47, 47, 0.8) !important; */
+}
+
+#title-Header {
+  margin: 0.5em 1em;
+}
+
+/* Link:hover {
+  color: black !important;
+  background-color: red;
+} */
+
+
+
+
