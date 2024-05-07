@@ -1,0 +1,29 @@
+.container {
+    margin: 5em;  
+    background-color: #efefef;
+    border-radius: 10px;
+}
+
+
+
+.formDelivery {
+    padding: 1em;
+    width: 800px !important;
+    display: flex;
+}
+
+.btn-show {
+    margin-right: 10px !important;
+}
+
+.muirtl-xn6ruc>:not(style) {
+    margin: 8px;
+    width: 100% !important;
+}
+
+
+.table-form{
+    /* margin: 500px; */
+    padding: 50px;
+    /* background-color: aqua; */
+}

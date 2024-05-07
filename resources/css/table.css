@@ -1,0 +1,17 @@
+.te{
+    --DataGrid-containerBackground: #e3cfcf !important; 
+    color: rgb(50, 50, 50) !important;
+    background-color: rgb(237, 235, 235) !important;
+}
+
+.containerTable{
+    margin: 2em 4em 0 2em;
+}
+
+.css-qcqlck-MuiDataGrid-root .MuiDataGrid-cell--textLeft {
+     text-align:right !important;
+}
+
+.css-n3fyjk-MuiDataGrid-root .MuiDataGrid-cell--textLeft{
+    text-align: right !important;
+}

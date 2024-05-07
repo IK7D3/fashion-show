@@ -1,0 +1,28 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@font-face {
+    font-family: Byekan;
+    src: url("./assets/fonts/Vazir-Bold.woff");
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Byekan !important;
+    /* color: white ; */
+}
+
+body {
+    /* height: 100vh; */
+    overflow-x: hidden;
+    background-size: cover;
+    /* background-image: url(../../public/assets/img/240_F_613830499_rIT4Y8UPjtAyLtdGd8o0AgmPr7WSew9W.jpg) !important; */
+    background-color: rgb(62, 62, 62);
+}

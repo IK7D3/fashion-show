@@ -1,0 +1,66 @@
+.container {
+    margin: 1em 10em 2em 27em;
+    /* margin-left: 27em; */
+    /* background-color: #424141 !important; */
+    max-width: 1200px !important;
+    /* color: blue !important; */
+}
+.footerSizing {
+    border-top: 3px solid #878484;
+    margin: 2em;
+    padding: 1em 2em;
+}
+.Modal {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    direction: rtl;
+}
+.btn-modal {
+    margin: 1em 1em !important;
+    /* font-size: 1.5em; */
+    /* background-color: transparent !important; */
+}
+
+.Accounts {
+    /* background-color: red !important; */
+    overflow: auto;
+    height: 70vh;
+    /* width: 10px !important; */
+}
+
+.test23 {
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 50px !important; */
+    background-color: red !important;
+}
+.te {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(+50%, -50%);
+    width: 300px;
+    height: 180px;
+    background-color: #1c1c1c;
+    display: flex;
+    flex-direction: column;
+    color: #efefef;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.te > div  {
+    padding: 5px;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    .Modal {
+        display: flex;
+        /* margin-right: -20px !important; */
+        max-width: 30px !important;
+        flex-wrap: wrap;
+        direction: rtl;
+    }
+}

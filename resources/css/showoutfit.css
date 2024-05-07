@@ -1,0 +1,43 @@
+.headShowSizing{
+    margin:20px 50px 5px 0;
+    border-bottom: 3px solid #efefef !important;
+    padding-bottom: 20px;
+}
+
+.Foundation{
+     margin:-4px 60px 0 0; 
+    padding-bottom: 10px !important;
+    border-bottom: 3px solid #efefef !important;
+}
+
+.print{
+    width: 40vw;
+    padding: 5px;
+    margin: 2em 4em 0 2em;
+}
+
+.containerBtnPrint{
+    display: flex;
+    justify-content: center;
+}
+.containerTablepro{
+    display: flex;
+    flex-direction: column;
+}
+.Title{
+    margin: 40px 20px !important;
+    padding: 10px !important;
+    font-size: 2em !important;
+}
+.css-1c2i806-MuiFormLabel-root-MuiInputLabel-root{
+    color: #efefef !important;
+    right: 0 !important;
+}
+
+.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input {
+    color: #efefef !important;
+}
+.css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon {
+    color: #efefef !important;
+}
+/* .css-1nrlq1o-MuiFormControl-root { */  
