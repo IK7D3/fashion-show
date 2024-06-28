@@ -111,6 +111,7 @@ const Sizing = ({ currentUser }) => {
     const handleReset = () => {
         setSizeScarf("");
         setNumberScarf("");
+        setPhone('')
         setSizeJogging("");
         setNumberJogging("");
         setNumberPants("");
@@ -221,6 +222,16 @@ const Sizing = ({ currentUser }) => {
                         variant="contained"
                         sx={{ marginRight: 3.5 }}
                         onClick={handleOpen}
+                        disabled={
+                            !(
+                                fname &&
+                                lname &&
+                                deposit &&
+                                phone &&
+                                foundation &&
+                                school
+                            )
+                        }
                     >
                         ثبت
                     </Button>
@@ -251,7 +262,7 @@ const style = {
 };
 
 function createData(
-    ID,
+    // ID,
     fName,
     lName,
     school,
@@ -268,7 +279,7 @@ function createData(
     phone
 ) {
     return {
-        ID,
+        // ID,
         fName,
         lName,
         school,
@@ -315,7 +326,7 @@ const BasicModal = ({
     // const {ID,setID} = useContext(UserContext)
     const rows = [
         createData(
-            "ID",
+            // "ID",
             fName,
             lName,
             school,
@@ -344,6 +355,9 @@ const BasicModal = ({
         console.log("currentUser.id", currentUser ? currentUser.id : "id");
         // handleClose();
     };
+
+    // const converter = (text) =>
+    //     text.replace(/[٠-٩۰-۹]/g, (a) => a.charCodeAt(0) & 15);
     const [openForSecond, setOpenForSecond] = useState(false);
     const handleClose = () => setOpen(false);
     const handleClick = () => {

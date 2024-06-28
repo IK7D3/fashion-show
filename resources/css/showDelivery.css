@@ -12,9 +12,9 @@
     display: flex;
 }
 
-.btn-show {
+/* .btn-show {
     margin-right: 10px !important;
-}
+} */
 
 .muirtl-xn6ruc>:not(style) {
     margin: 8px;
@@ -26,4 +26,21 @@
     /* margin: 500px; */
     padding: 50px;
     /* background-color: aqua; */
+}
+
+.deliverModal {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(+50%, -50%);
+    width: 300px;
+    height: 100px;
+    background-color: #dfdfdf;
+    color: rgb(48, 48, 48);
+    border-radius: 20px;
+    padding: 20px;
+    z-index: 100;
+    text-align: center;
+    /* align-self: ; */
+   padding: 40px;
 }

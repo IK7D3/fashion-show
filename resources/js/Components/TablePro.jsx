@@ -5,18 +5,18 @@ import '../../css/table.css'
 
 const columns = [
   { field: "id", headerName: "ID", width: 130 },
-  {
-    field: "status",
-    headerName: "وضعیت تحویل",
-    width: 130,
-  },
+  // {
+  //   field: "status",
+  //   headerName: "وضعیت تحویل",
+  //   width: 130,
+  // },
   {
     field: "fullName",
     headerName: "نام کامل",
     description: "This column has a value getter and is not sortable.",
     sortable: false,
     width: 160,
-    valueGetter: (value, row) => `${row.name || ""} ${row.lastname || ""}  ${row.level}`,
+    valueGetter: (value, row) => `${row.name || ""} ${row.lastname || ""}  ${row.level || ' hi '}`,
   },
   {
     field: "phone",
@@ -28,11 +28,7 @@ const columns = [
   //   headerName: "مدرسه",
   //   width: 130,
   // },
-  {
-    field: "description",
-    headerName: "توضیحات",
-    width: 130,
-  },
+ 
   {
     field: "deposit",
     headerName: "بیعانه",
@@ -77,6 +73,11 @@ const columns = [
     field: "sportsweardSize",
     headerName: "سایز لباس ورزشی",
     width: 130,
+  },
+  {
+    field: "description",
+    headerName: "توضیحات",
+    width: 3000,
   },
 
 
@@ -126,6 +127,7 @@ export default function DataTable({rows}) {
         className="te"
         rows={rows}
         columns={columns}
+        ov
         initialState={{
           pagination: {
             paginationModel: { page: 0, pageSize: 15 },

@@ -22,7 +22,7 @@ class HomeController extends Controller
     public function deliveryOutfit(): Response
     {
         $data = User::all();
-        return Inertia::render('Auth/Deliver')
+        return Inertia::render('Auth/Transactions')
         ->with('data', $data);
     }
 }

@@ -6,7 +6,7 @@ import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { Header } from './Components/Header';
 
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+const appName = import.meta.env.VITE_APP_NAME || 'تولیدی  ستاره شب';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -18,6 +18,7 @@ createInertiaApp({
         <div dir='rtl'>
         <Header/>
         <App {...props} />
+        
         </div>
         );
     },

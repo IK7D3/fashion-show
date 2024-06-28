@@ -21,7 +21,6 @@ class RegisteredUserController extends Controller
     public function create(Request $request) : Response
     {
 
-        //  dd($request);
             $user = User::create([
             'name' => $request->input('fname'),
             'lastname'=> $request->input('lname'),
@@ -43,7 +42,31 @@ class RegisteredUserController extends Controller
          
          return Inertia::render('Auth/Sizing')->with('currentUser', $user);
     }
-
+    public function deliverOut(Request $request) : Response
+    {    
+        // "id" => "4"
+        // "scarf" => true
+        // "sportsweard" => false
+        // "clothe" => false
+        // "pants" => true
+         $user = User::where('id','=', $request->input('id'))->first();
+         if ($request->input('scarf')) {
+            $user->maskedCount = 0;
+         }
+         if ($request->input('sportsweard')) {
+            $user->sportsweardCount = 0;
+         }
+         if ($request->input('clothe')) {
+            $user->clotheCount = 0;
+         }
+         if ($request->input('pants')) {
+            $user->	pantsCount = 0;
+         }
+        //  dd($user->lastname);
+         $user -> save();
+         $data = User::all();
+         return Inertia::render('Auth/Deliver')->with('data', $data);
+    }
     /**
      * Handle an incoming registration request.
      *

@@ -81,8 +81,9 @@ const Account = ({
                     <Grid item xs={12} sm={6}>
                         <TextField
                             fullWidth
-                            type="text"
+                            type="number"
                             label="بیعانه"
+                            
                             placeholder="بیعانه را وارد کنید"
                             value={deposit}
                             onChange={(event) => setDeposi(event.target.value)}
@@ -123,8 +124,9 @@ const Account = ({
                             onKeyPress={(event) => {
                                 if (event.key === "Enter") {
                                     document
-                                        .getElementById("foundation")
+                                        .getElementById("uniform0")
                                         .focus();
+                                        // {`uniform${id}`}
                                 }
                             }}
                         />
@@ -168,7 +170,7 @@ const Account = ({
                     </Grid>
                     <Grid item xs={12} sm={6}>
                         <Uniform
-                            name="شلوار ورزشی"
+                            name="ست ورزشی"
                             size={sizeJogging}
                             setSize={setSizeJogging}
                             number={numberJogging}

@@ -23,7 +23,10 @@ const Uniform = ({ name, size, setSize, number, setNumber, id }) => {
               placeholder="سایز را وارد کنید"
               type="number"
               value={size}
-              onChange={(event) => setSize(event.target.value)}
+              onChange={(event) => {
+                const newValue = Math.min(Math.max(event.target.value, 1), 12);
+                setSize(newValue);
+              }}
               id={`uniform${id}`}
               onKeyPress={(event) => {
                 if (event.key === "Enter") {
@@ -40,7 +43,10 @@ const Uniform = ({ name, size, setSize, number, setNumber, id }) => {
               placeholder="تعداد  را وارد کنید "
               type="number"
               value={number}
-              onChange={(event) => setNumber(event.target.value)}
+              onChange={(event) => {
+                const newValue = Math.min(Math.max(event.target.value, 1), 12);
+                setNumber(newValue);
+              }}
               onKeyPress={(event) => {
                 if (event.key === "Enter") {
                   if (id + 1 > 3) {

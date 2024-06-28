@@ -20,7 +20,8 @@ Route::middleware('guest')->group(function () {
     
     Route::post('testPost', [RegisteredUserController::class, 'create'])
     ->name('testPost');
-
+    Route::post('deliverOut', [RegisteredUserController::class, 'deliverOut'])
+    ->name('deliverOut');
     // Route::get('register', [RegisteredUserController::class, 'create'])
     //             ->name('register');
 

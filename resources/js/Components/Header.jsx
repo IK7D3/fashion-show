@@ -22,6 +22,7 @@ const pages = [
     { name: "سایز کردن لباس", link: "/Sizing" },
     { name: "نمایش لباس ها ", link: "/ShowSizing" },
     { name: "  تحویل لباس ", link: "/goDeliveryOutfit" },
+// {}
 ];
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -75,7 +76,7 @@ export const Header = () => {
                             textDecoration: "none",
                         }}
                     >
-                        مزون خیاطی ستاره شب
+                        تولیدی ستاره شب
                     </Typography>
 
                     <Box
@@ -168,7 +169,7 @@ export const Header = () => {
                             fontSize: "inherit",
                         }}
                     >
-                        مزون خیاطی شب ستاره
+                         تولیدی شب ستاره
                     </Typography>
                     <Box
                         className="Header"
@@ -200,6 +201,13 @@ export const Header = () => {
                             href={route("goDeliveryOutfit")}
                         >
                             تحویل لباس
+                        </Link>
+                        <Link
+                            // className="Header"
+                            id="link"
+                            href={route("goDeliveryOutfit")}
+                        >
+                            حساب ها 
                         </Link>
                     </Box>
                 </Toolbar>

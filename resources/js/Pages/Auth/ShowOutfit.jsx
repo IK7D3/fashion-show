@@ -25,10 +25,10 @@ import Table from "@/Components/Table";
 // css
 import "./../../../css/showoutfit.css";
 
-const mapSizeNumber = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const mapSizeNumber1 = [0, 1, 2];
+const mapSizeNumber = ["سایز ها", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12];
+const mapSizeNumber1 = ["سایز ها", 1, 2,3];
 const mapFoundationNumber = [
-    "همه",
+    "کلاس ها",
     "اول",
     "دوم",
     "سوم",
@@ -176,6 +176,10 @@ const rows = [
 
 const currencies = [
     {
+        value: "0",
+        label: "همه",
+    },
+    {
         value: "1",
         label: "لباس",
     },
@@ -192,6 +196,8 @@ const currencies = [
         label: "مقنعه",
     },
 ];
+
+const schoolName = ["مادر", "پدر", "علامه"];
 export default function ShowOutfit({ data }) {
     console.log("m", data);
     const contentToPrint = React.useRef(null);
@@ -205,45 +211,71 @@ export default function ShowOutfit({ data }) {
     const [value1, setValue1] = React.useState(0);
     const [value2, setValue2] = React.useState(0);
     const [value3, setValue3] = React.useState(0);
-    const [forSize,setForSize] = React.useState(0);
-    const [forSizeNumber,setForSizeNuber] = React.useState(mapSizeNumber);
+    const [count, setCount] = React.useState(0);
+    const [forSize, setForSize] = React.useState(0);
+    const [forSizeNumber, setForSizeNuber] = React.useState(mapSizeNumber);
     const [tableRows, setTableRows] = React.useState(data);
 
     React.useEffect(() => {
         let number = (value1 + 1) * 10;
         let result = data.filter((row) => parseInt(row.schoolname) === number);
+        if (value2 != 0) {
+            result = result.filter((row) => parseInt(row.level) == value2);
+        }
+        let count = 0;
+        if (value3 != 0) {
+            if (forSize == 1) {
+                result = result.filter(
+                    (row) => parseInt(row.clotheSize) == value3
+                );
+                result.map((row) => {
+                    count = count + parseInt(row.clotheCount);
+                });
+                setForSizeNuber(mapSizeNumber);
+                // alert(count);
+            }
+
+            if (forSize == 2) {
+                result = result.filter(
+                    (row) => parseInt(row.pantsSize) == value3
+                );
+                result.map((row) => {
+                    count = count + parseInt(row.pantsCount);
+                });
+                setForSizeNuber(mapSizeNumber);
+            }
+            if (forSize == 3) {
+                result = result.filter(
+                    (row) => parseInt(row.sportsweardSize) == value3
+                );
+                result.map((row) => {
+                    count = count + parseInt(row.sportsweardCount);
+                });
+                setForSizeNuber(mapSizeNumber);
+            }
+            if (forSize == 4) {
+                result = result.filter(
+                    (row) => parseInt(row.maskedSize) == value3
+                );
+                result.map((row) => {
+                    count = count + parseInt(row.maskedCount);
+                });
+                setForSizeNuber(mapSizeNumber1);
+            }
+            setCount(count);
+        }
         setTableRows(result);
-    }, [value1]);
+    }, [value1, value2, value3, forSize]);
 
     React.useEffect(() => {
-        let result = tableRows;
-        if (value2 != 0) {
-             result = tableRows.filter((row) => row.foundation == value2);
+        if (forSize == 4) {
+            setForSizeNuber(mapSizeNumber1);
+        } else {
+            setForSizeNuber(mapSizeNumber);
         }
-        setTableRows(result);
-    }, [value2]);
+    }, [forSize]);
 
-    React.useEffect(()=>{
-        let result = tableRows
-        if (forSize == 1){
-            result = tableRows.filter((row) => row.clotheSize == value3);
-            setForSizeNuber(mapSizeNumber)
-        }
-        if (forSize == 2){
-            result = tableRows.filter((row) => row.pantsSize == value3);
-            setForSizeNuber(mapSizeNumber)
-        }
-        if (forSize == 3){
-            result = tableRows.filter((row) => row.sportsweardSize == value3);
-            setForSizeNuber(mapSizeNumber)
-
-        }
-        if (forSize == 4){
-            result = tableRows.filter((row) => row.maskedSize == value3);
-            setForSizeNuber(mapSizeNumber1)
-
-        }
-    })
+    
     const handleChange1 = (event, newValue) => {
         setValue1(newValue);
     };
@@ -318,22 +350,23 @@ export default function ShowOutfit({ data }) {
                 autoComplete="off"
             >
                 <TextField
-                style={{ backgroundColor: "red !important" }}
+                    style={{ backgroundColor: "red !important" }}
                     id="standard-select-currency"
                     select
                     label="سایز"
                     // defaultValue=
                     value={forSize}
-                    onChange={(e)=> setForSize(e.target.value)}
+                    onChange={(e) => setForSize(e.target.value)}
                     dir="rtl"
                     // helperText="Please select your currency"
                     variant="standard"
                 >
                     {currencies.map((option) => (
                         <MenuItem
-                        style={{backgroundColor: "red !important",
-                            color:"red !important"
-                         }}
+                            style={{
+                                backgroundColor: "red !important",
+                                color: "red !important",
+                            }}
                             key={option.value}
                             value={option.value}
                             dir="rtl"
@@ -366,6 +399,37 @@ export default function ShowOutfit({ data }) {
             <div ref={contentToPrint}>
                 <TablePro dir="rtl" rows={tableRows}></TablePro>
             </div>
+            {value3 && value2 && forSize ? (
+                <Box
+                    component="section"
+                    sx={{
+                        p: 2,
+                        border: "1px dashed #936c6c",
+                        margin: "2em",
+                        padding: "1em",
+                        color: "#efefef",
+                        textAlign: "center",
+                        wordSpacing: "21px",
+                    }}
+                >
+                    {`در مجموع تعداد ${currencies[forSize].label} با سایز ${value3} کلاس ${value2}ام  مدرسه ${schoolName[value1]} برابر است با ${count} تا`}
+                </Box>
+            ) : (
+                <Box
+                    component="section"
+                    sx={{
+                        p: 2,
+                        border: "1px dashed #936c6c",
+                        margin: "2em",
+                        padding: "1em",
+                        color: "#efefef",
+                        textAlign: "center",
+                        wordSpacing: "21px",
+                    }}
+                >
+                    {`  برای نشان دادن تعداد مجموع باید کلاس و سایز و نوع فیلتر را مشخص کنید`}
+                </Box>
+            )}
             <div className="containerBtnPrint">
                 <Button
                     onClick={() => {
@@ -406,4 +470,3 @@ function a11yProps(index) {
         "aria-controls": `simple-tabpanel-${index}`,
     };
 }
-
